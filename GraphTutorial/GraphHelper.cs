@@ -57,6 +57,32 @@ namespace GraphTutorial
                 .GetAsync();
         }
 
+        public static Task<IMailFolderMessagesCollectionPage> GetInboxAsync()
+        {
+            // Ensure client isn't null
+            _ = _userClient ??
+                throw new System.NullReferenceException("Graph has not been initialized for user auth");
+
+            return _userClient.Me
+                // Only messages from Inbox folder
+                .MailFolders["Inbox"]
+                .Messages
+                .Request()
+                .Select(m => new
+                {
+            // Only request specific properties
+            m.From,
+                    m.IsRead,
+                    m.ReceivedDateTime,
+                    m.Subject
+                })
+                // Get at most 25 results
+                .Top(25)
+                // Sort by received time, newest first
+                .OrderBy("ReceivedDateTime DESC")
+                .GetAsync();
+        }
+
 
 
 
