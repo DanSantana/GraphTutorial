@@ -1,3 +1,1 @@
-Application (client) ID:0c7977a0-ec88-4dcd-a447-023cf7d03e1f
-Object ID:c96bfb70-4eee-427d-9198-31da5b0203d3
-Directory (tenant) ID:714a28c7-d4ee-48ef-8a29-4fb447a09cda
+silence is gold
